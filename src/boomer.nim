@@ -452,14 +452,16 @@ proc main() =
         if (xev.xkey.state and ControlMask) > 0.uint32 and flashlight.isEnabled:
           flashlight.deltaRadius += INITIAL_FL_DELTA_RADIUS
         else:
-          camera.deltaScale += config.scrollSpeed
+          let adjustedScale = log10(camera.scale + 1) / log10(config.scrollSpeed)
+          camera.deltaScale += adjustedScale
           camera.scalePivot = mouse.curr
 
       proc scrollDown() =
         if (xev.xkey.state and ControlMask) > 0.uint32 and flashlight.isEnabled:
           flashlight.deltaRadius -= INITIAL_FL_DELTA_RADIUS
         else:
-          camera.deltaScale -= config.scrollSpeed
+          let adjustedScale = log10(camera.scale + 1) / log10(config.scrollSpeed)
+          camera.deltaScale -= adjustedScale
           camera.scalePivot = mouse.curr
 
       case xev.theType
