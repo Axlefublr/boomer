@@ -489,16 +489,44 @@ proc main() =
         case key
         of XK_EQUAL: scrollUp()
         of XK_MINUS: scrollDown()
-        of XK_0, XK_s:
+        of XK_0:
           camera.scale = 1.0
           camera.deltaScale = 0.0
           camera.position = vec2(0.0'f32, 0.0)
           camera.velocity = vec2(0.0'f32, 0.0)
+
+        of XK_v:
+          camera.deltaScale += camera.scale + config.scrollSpeed
+        of XK_x:
+          camera.deltaScale -= camera.scale + config.scrollSpeed
+
+        of XK_h:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(-(1 / camera.scale * 20), 0) * rate.float * config.scrollSpeed
+        of XK_l:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(1 / camera.scale * 20, 0) * rate.float * config.scrollSpeed
+        of XK_j:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(0, 1 / camera.scale * 20) * rate.float * config.scrollSpeed
+        of XK_k:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(0, -(1 / camera.scale * 20)) * rate.float * config.scrollSpeed
+
+        of XK_a:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(-(1 / camera.scale * 20), -(1 / camera.scale * 20)) * rate.float * config.scrollSpeed
+        of XK_s:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(-(1 / camera.scale * 20), 1 / camera.scale * 20) * rate.float * config.scrollSpeed
         of XK_d:
-          camera.scale = 1.0
-          camera.deltaScale = 0.0
-          camera.velocity = vec2(0.0'f32, 0.0)
-        of XK_q, XK_Escape:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(1 / camera.scale * 20, 1 / camera.scale * 20) * rate.float * config.scrollSpeed
+        of XK_f:
+          camera.scalePivot = mouse.curr
+          camera.velocity = vec2(1 / camera.scale * 20, -(1 / camera.scale * 20)) * rate.float * config.scrollSpeed
+
+        of XK_q, XK_Escape, XK_e:
           quitting = true
         of XK_r:
           if configFile.len > 0 and fileExists(configFile):
@@ -519,7 +547,7 @@ proc main() =
                 echo "Could not reload the shaders"
               echo "------------------------------"
 
-        of XK_f:
+        of XK_g:
           flashlight.isEnabled = not flashlight.isEnabled
         else:
           discard

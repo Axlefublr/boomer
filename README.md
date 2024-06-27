@@ -12,19 +12,21 @@ Zoomer application for Linux.
 
 ## This fork's changes
 
-Scrolling direction is reversed. I find it easier to scroll towards me, and there's also the nice semantic effort of feeling like I'm pulling the screen towards me.
+Scrolling direction is reversed. I find it easier to scroll towards me, and there's also the nice semantic effect of feeling like I'm pulling the screen towards me.
 
-<kbd>s</kbd> does the same thing as <kbd>0</kbd> — <kbd>0</kbd> might as well be impossible to press when you're using the mouse.
+Right click does almost the same thing as <kbd>0</kbd>: it keeps the same position, instead or resetting it.
 
-<kbd>d</kbd> and Right click does almost the same thing as <kbd>0</kbd>: it keeps the same position, instead or resetting it.
+Middle click closes boomer. <kbd>e</kbd> does as well.
 
-Middle click closes boomer.
+Flashlight moved to <kbd>g</kbd>
 
 The biggest, and most important change, is how the zooming happens.
 
 In upstream, the more you zoom in, the more effort it takes to zoom in further. I'm guessing that either Tsoding didn't mind that behavior, or made it that way to avoid accidental overscrolling.
 
 In this fork, instead of adding velocity flatly any time you scroll to zoom, the velocity is multiplied by the current scale. This results in that the effort you need to put in to scroll doesn't change depending on your current zoom level.
+
+You get reasonably okay keyboard support. <kbd>a</kbd>, <kbd>s</kbd>, <kbd>d</kbd>, <kbd>f</kbd>, <kbd>h</kbd>, <kbd>j</kbd>, <kbd>k</kbd>, <kbd>l</kbd> move the camera to 8 different directions; <kbd>x</kbd> and <kbd>v</kbd> zoom out / in, relative to (unfortunately) your mouse cursor. These moving and zooming hotkeys still play by the new velocity rules nicely.
 
 ## Dependencies
 
@@ -56,17 +58,17 @@ This will enable reloading the shaders with `Ctrl+R`. The shader files (`frag.gl
 
 ## Controls
 
-| Control                                        | Description                                                   |
-| ---------------------------------------------- | ------------------------------------------------------------- |
-| <kbd>0</kbd> or <kbd>s</kbd>                   | Reset the application state (position, scale, velocity, etc). |
-| <kbd>d</kbd> or Right click                    | Reset the application state, excluding position.              |
-| <kbd>q</kbd> or <kbd>ESC</kbd> or Middle click | Quit the application.                                         |
-| <kbd>r</kbd>                                   | Reload configuration.                                         |
-| <kbd>Ctrl</kbd> + <kbd>r</kbd>                 | Reload the shaders (only for Developer mode)                  |
-| <kbd>f</kbd>                                   | Toggle flashlight effect.                                     |
-| Drag with left mouse button                    | Move the image around.                                        |
-| Scroll wheel or <kbd>=</kbd>/<kbd>-</kbd>      | Zoom in/out.                                                  |
-| <kbd>Ctrl</kbd> + Scroll wheel                 | Change the radious of the flaslight.                          |
+| Control                                                        | Description                                                   |
+| -------------------------------------------------------------- | ------------------------------------------------------------- |
+| <kbd>0</kbd>                                                   | Reset the application state (position, scale, velocity, etc). |
+| <kbd>d</kbd> or Right click                                    | Reset the application state, excluding position.              |
+| <kbd>q</kbd> or <kbd>ESC</kbd> or Middle click or <kbd>e</kbd> | Quit the application.                                         |
+| <kbd>r</kbd>                                                   | Reload configuration.                                         |
+| <kbd>Ctrl</kbd> + <kbd>r</kbd>                                 | Reload the shaders (only for Developer mode)                  |
+| <kbd>g</kbd>                                                   | Toggle flashlight effect.                                     |
+| Drag with left mouse button                                    | Move the image around.                                        |
+| Scroll wheel or <kbd>=</kbd>/<kbd>-</kbd>                      | Zoom in/out.                                                  |
+| <kbd>Ctrl</kbd> + Scroll wheel                                 | Change the radious of the flaslight.                          |
 
 ## Configuration
 
