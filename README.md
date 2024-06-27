@@ -10,11 +10,15 @@ Zoomer application for Linux.
 - Development is done on https://twitch.tv/tsoding
 - Archive of the streams: https://www.twitch.tv/collections/HlRy-q69uBXmpQ
 
-# This fork's changes
+## This fork's changes
 
-<kbd>s</kbd> does the same thing as <kbd>0</kbd>. <kbd>0</kbd> might as well be impossible to press when you're using the mouse.
+Scrolling direction is reversed. I find it easier to scroll towards me, and there's also the nice semantic effort of feeling like I'm pulling the screen towards me.
 
-<kbd>d</kbd> does almost the same thing as <kbd>0</kbd>: it keeps the same position, instead or resetting it.
+<kbd>s</kbd> does the same thing as <kbd>0</kbd> — <kbd>0</kbd> might as well be impossible to press when you're using the mouse.
+
+<kbd>d</kbd> and Right click does almost the same thing as <kbd>0</kbd>: it keeps the same position, instead or resetting it.
+
+Middle click closes boomer.
 
 The biggest, and most important change, is how the zooming happens.
 
@@ -52,17 +56,17 @@ This will enable reloading the shaders with `Ctrl+R`. The shader files (`frag.gl
 
 ## Controls
 
-| Control                                   | Description                                                   |
-|-------------------------------------------|---------------------------------------------------------------|
-| <kbd>0</kbd> or <kbd>s</kbd>              | Reset the application state (position, scale, velocity, etc). |
-| <kbd>d</kbd>                              | Reset the application state, excluding position.              |
-| <kbd>q</kbd> or <kbd>ESC</kbd>            | Quit the application.                                         |
-| <kbd>r</kbd>                              | Reload configuration.                                         |
-| <kbd>Ctrl</kbd> + <kbd>r</kbd>            | Reload the shaders (only for Developer mode)                  |
-| <kbd>f</kbd>                              | Toggle flashlight effect.                                     |
-| Drag with left mouse button               | Move the image around.                                        |
-| Scroll wheel or <kbd>=</kbd>/<kbd>-</kbd> | Zoom in/out.                                                  |
-| <kbd>Ctrl</kbd> + Scroll wheel            | Change the radious of the flaslight.                          |
+| Control                                        | Description                                                   |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| <kbd>0</kbd> or <kbd>s</kbd>                   | Reset the application state (position, scale, velocity, etc). |
+| <kbd>d</kbd> or Right click                    | Reset the application state, excluding position.              |
+| <kbd>q</kbd> or <kbd>ESC</kbd> or Middle click | Quit the application.                                         |
+| <kbd>r</kbd>                                   | Reload configuration.                                         |
+| <kbd>Ctrl</kbd> + <kbd>r</kbd>                 | Reload the shaders (only for Developer mode)                  |
+| <kbd>f</kbd>                                   | Toggle flashlight effect.                                     |
+| Drag with left mouse button                    | Move the image around.                                        |
+| Scroll wheel or <kbd>=</kbd>/<kbd>-</kbd>      | Zoom in/out.                                                  |
+| <kbd>Ctrl</kbd> + Scroll wheel                 | Change the radious of the flaslight.                          |
 
 ## Configuration
 
@@ -80,7 +84,7 @@ You can generate a new config at `$HOME/.config/boomer/config` with `$ boomer --
 Supported parameters:
 
 | Name           | Description                                        |
-|----------------|----------------------------------------------------|
+| -------------- | -------------------------------------------------- |
 | min_scale      | The smallest it can get when zooming out           |
 | scroll_speed   | How quickly you can zoom in/out by scrolling       |
 | drag_friction  | How quickly the movement slows down after dragging |
@@ -90,11 +94,11 @@ Supported parameters:
 
 Experimental or unstable features can be enabled by passing the following flags to `nimble build` command:
 
-| Flag          | Description                                                                                                                    |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `-d:live`     | Live image update. See issue [#26].                                                                                            |
-| `-d:mitshm`   | Enables faster Live image update using MIT-SHM X11 extension. Should be used along with `-d:live` to have an effect             |
-| `-d:select`   | Application lets the user to click on te window to "track" and it will track that specific window instead of the whole screen. |
+| Flag        | Description                                                                                                                    |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `-d:live`   | Live image update. See issue [#26].                                                                                            |
+| `-d:mitshm` | Enables faster Live image update using MIT-SHM X11 extension. Should be used along with `-d:live` to have an effect            |
+| `-d:select` | Application lets the user to click on te window to "track" and it will track that specific window instead of the whole screen. |
 
 ## NixOS Overlay
 

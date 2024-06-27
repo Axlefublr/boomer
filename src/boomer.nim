@@ -530,6 +530,12 @@ proc main() =
           mouse.prev = mouse.curr
           mouse.drag = true
           camera.velocity = vec2(0.0, 0.0)
+        of Button2: # middle click
+          quitting = true # reason why it's on middle click, is that right click goes through to the window behind, when you close boomer with it. middle click seems to do nothing, so far.
+        of Button3: # right click
+          camera.scale = 1.0
+          camera.deltaScale = 0.0
+          camera.velocity = vec2(0.0'f32, 0.0)
         of Button4: scrollUp()
         of Button5: scrollDown()
         else:
