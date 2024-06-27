@@ -491,10 +491,14 @@ proc main() =
         case key
         of XK_EQUAL: scrollUp()
         of XK_MINUS: scrollDown()
-        of XK_0, XK_d:
+        of XK_0, XK_s:
           camera.scale = 1.0
           camera.deltaScale = 0.0
           camera.position = vec2(0.0'f32, 0.0)
+          camera.velocity = vec2(0.0'f32, 0.0)
+        of XK_d:
+          camera.scale = 1.0
+          camera.deltaScale = 0.0
           camera.velocity = vec2(0.0'f32, 0.0)
         of XK_q, XK_Escape:
           quitting = true

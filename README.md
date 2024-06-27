@@ -10,6 +10,18 @@ Zoomer application for Linux.
 - Development is done on https://twitch.tv/tsoding
 - Archive of the streams: https://www.twitch.tv/collections/HlRy-q69uBXmpQ
 
+# This fork's changes
+
+`s` does the same thing as `0`. `0` might as well be impossible to press when you're using the mouse.
+
+`d` does almost the same thing as `0`: it keeps the same position, instead or resetting it.
+
+The biggest, and most important change, is how the zooming happens.
+
+In upstream, the more you zoom in, the more effort it takes to zoom in further. This is not true *technically*, because of how scaling works, but that's how it *feels*.
+
+In this fork, it is smoothed out by using a logarithmic algorithm. Now, the effort you need to put in to scroll further feels similar, regardless of the current scale.
+
 ## Dependencies
 
 ### Debian
@@ -42,7 +54,8 @@ This will enable reloading the shaders with `Ctrl+R`. The shader files (`frag.gl
 
 | Control                                   | Description                                                   |
 |-------------------------------------------|---------------------------------------------------------------|
-| <kbd>0</kbd>                              | Reset the application state (position, scale, velocity, etc). |
+| <kbd>0</kbd> or <kbd>s</kbd>              | Reset the application state (position, scale, velocity, etc). |
+| <kbd>d</kbd>                              | Reset the application state, excluding position.              |
 | <kbd>q</kbd> or <kbd>ESC</kbd>            | Quit the application.                                         |
 | <kbd>r</kbd>                              | Reload configuration.                                         |
 | <kbd>Ctrl</kbd> + <kbd>r</kbd>            | Reload the shaders (only for Developer mode)                  |
