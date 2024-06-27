@@ -16,9 +16,11 @@ Scrolling direction is reversed. I find it easier to scroll towards me, and ther
 
 Right click does almost the same thing as <kbd>0</kbd>: it keeps the same position, instead or resetting it.
 
+<kbd>w</kbd>, however, is equivalent to <kbd>0</kbd>.
+
 Middle click closes boomer. <kbd>e</kbd> does as well.
 
-Flashlight moved to <kbd>g</kbd>
+Flashlight moved to <kbd>g</kbd>.
 
 The biggest, and most important change, is how the zooming happens.
 
@@ -60,7 +62,7 @@ This will enable reloading the shaders with `Ctrl+R`. The shader files (`frag.gl
 
 | Control                                                        | Description                                                   |
 | -------------------------------------------------------------- | ------------------------------------------------------------- |
-| <kbd>0</kbd>                                                   | Reset the application state (position, scale, velocity, etc). |
+| <kbd>0</kbd> or <kbd>w</kbd>                                   | Reset the application state (position, scale, velocity, etc). |
 | <kbd>d</kbd> or Right click                                    | Reset the application state, excluding position.              |
 | <kbd>q</kbd> or <kbd>ESC</kbd> or Middle click or <kbd>e</kbd> | Quit the application.                                         |
 | <kbd>r</kbd>                                                   | Reload configuration.                                         |
